@@ -1,7 +1,7 @@
 import * as makeRandom from './makeRandom';
 
 export interface Product {
-  id: number;
+  id: string;
   picture: string;
   price: string;
   title: string;
@@ -10,8 +10,8 @@ export interface Product {
 
 export const makeProductList = function (num: number) {
   const newArray: number[] = [...new Array(num)].map((_, i) => i + 1);
-  const productLists: Product[] = newArray.map((_, i) => ({
-    id: i + 1,
+  const productLists: Product[] = newArray.map(() => ({
+    id: makeRandom.randomId(),
     picture: makeRandom.randomImage(),
     price: makeRandom.randomPrice(),
     title: makeRandom.randomtitle(),
