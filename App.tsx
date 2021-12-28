@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 
 const MyCarrotStack = function () {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="나의 당근1" component={MyCarrot} />
       <Stack.Screen name="프로필" component={Profile} />
     </Stack.Navigator>

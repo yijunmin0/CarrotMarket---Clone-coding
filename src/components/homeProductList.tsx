@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {Product} from '../data/api';
-import {useNavigation} from '@react-navigation/native';
 
 export type ProductProps = {
   product: Product;
