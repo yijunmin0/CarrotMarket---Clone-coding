@@ -1,13 +1,13 @@
 import React, {FC} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {Product} from '../data/api';
+import {useNavigation} from '@react-navigation/native';
 
 export type ProductProps = {
   product: Product;
 };
 
 export const HomeProductList: FC<ProductProps> = ({product}) => {
-  console.log(product);
   return (
     <View style={styles.view}>
       <View style={styles.leftContents}>

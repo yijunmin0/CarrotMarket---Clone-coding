@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import {StyleSheet, FlatList, View, Dimensions} from 'react-native';
+import {StyleSheet, FlatList, View} from 'react-native';
 import {HomeProductList} from '../components/homeProductList';
 import {Product} from '../data/api';
 import {makeProductList} from '../data/api';
-
-const {width} = Dimensions.get('window');
 
 export const Home = function () {
   const [productList, setProduectList] = useState<Product[]>(
@@ -20,7 +18,7 @@ export const Home = function () {
   const [isRefreshing] = useState<boolean>(false);
 
   return (
-    <View>
+    <View style={styles.flex}>
       <FlatList
         style={styles.flatList}
         data={productList}
@@ -29,9 +27,9 @@ export const Home = function () {
         ItemSeparatorComponent={() => <View style={[styles.itemSeparator]} />}
         initialNumToRender={10}
         maxToRenderPerBatch={10}
-        windowSize={5}
+        windowSize={7}
         onEndReached={onEndReached}
-        onEndReachedThreshold={0.6}
+        onEndReachedThreshold={0.5}
         refreshing={isRefreshing}
         onRefresh={onRefresh}
         removeClippedSubviews={true}
@@ -41,9 +39,9 @@ export const Home = function () {
 };
 
 const styles = StyleSheet.create({
+  flex: {flex: 1},
   flatList: {
     flex: 1,
-    width: width,
     padding: 15,
   },
   itemSeparator: {borderWidth: 0.5, borderColor: 'lightgrey'},
