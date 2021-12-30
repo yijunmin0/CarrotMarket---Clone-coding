@@ -1,19 +1,27 @@
 import React, {useState} from 'react';
+import {useEffect} from 'react';
 import {StyleSheet, FlatList, View} from 'react-native';
 import {HomeProductList} from '../components/homeProductList';
 import {Product} from '../data/api';
 import {makeProductList} from '../data/api';
 
 export const Home = function () {
-  const [productList, setProduectList] = useState<Product[]>(
-    makeProductList(20),
-  );
+  const AddProductList = function (num: number) {
+    makeProductList(num).then(List => setProductList(List));
+  };
+  const [productList, setProductList] = useState<Product[]>([]);
+
+  useEffect(() => {
+    AddProductList(20);
+  }, []);
+
   const onEndReached = () => {
-    const add = makeProductList(20);
-    setProduectList(() => productList.concat(add));
+    makeProductList(20).then(List =>
+      setProductList(() => productList.concat(List)),
+    );
   };
   const onRefresh = () => {
-    setProduectList(() => makeProductList(20));
+    AddProductList(20);
   };
   const [isRefreshing] = useState<boolean>(false);
 

@@ -9,7 +9,7 @@ export const MyCarrot = function () {
       <Text>this is MyCarrot</Text>
       <Button
         title="Go to My Profile"
-        onPress={() => navigation.navigate('프로필')}
+        onPress={() => navigation.navigate('Profile')}
       />
     </View>
   );

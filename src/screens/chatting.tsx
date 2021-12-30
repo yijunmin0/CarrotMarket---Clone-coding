@@ -1,11 +1,18 @@
 import React from 'react';
+import {Button} from 'react-native';
 import {Text} from 'react-native';
 import {View} from 'react-native';
 
-export const Chatting = function () {
+export const Chatting = function ({navigation}: Prop) {
   return (
     <View>
       <Text>this is Chatting</Text>
+      <Button
+        title="Go To Chatting"
+        onPress={() => {
+          navigation.navigate('ChattingSpecific');
+        }}
+      />
     </View>
   );
 };
