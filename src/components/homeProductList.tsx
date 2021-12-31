@@ -9,7 +9,7 @@ export type ProductProps = {
 };
 
 export const HomeProductList: FC<ProductProps> = ({product}) => {
-  const navigation = useNavigation<>();
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() => {

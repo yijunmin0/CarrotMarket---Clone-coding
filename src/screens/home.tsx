@@ -6,13 +6,13 @@ import {Product} from '../data/api';
 import {makeProductList} from '../data/api';
 
 export const Home = function () {
-  const AddProductList = function (num: number) {
+  const newProductList = function (num: number) {
     makeProductList(num).then(List => setProductList(List));
   };
   const [productList, setProductList] = useState<Product[]>([]);
 
   useEffect(() => {
-    AddProductList(20);
+    newProductList(20);
   }, []);
 
   const onEndReached = () => {
@@ -21,7 +21,7 @@ export const Home = function () {
     );
   };
   const onRefresh = () => {
-    AddProductList(20);
+    newProductList(20);
   };
   const [isRefreshing] = useState<boolean>(false);
 
