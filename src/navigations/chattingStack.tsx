@@ -3,6 +3,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Chatting} from '../screens/chatting';
 import {ChattingSpecific} from '../screens/chattingSpecific';
+import {StackScreenProps} from '@react-navigation/stack';
 
 const Stack = createStackNavigator<ChattingStackParamList>();
 
@@ -19,3 +20,5 @@ type ChattingStackParamList = {
   Chatting: undefined;
   ChattingSpecific: undefined;
 };
+
+export type Props = StackScreenProps<ChattingStackParamList>;
