@@ -43,6 +43,7 @@ export const BottomTabNavigation = function () {
           },
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'gray',
+          headerShown: false,
         })}>
         <Tab.Screen
           name="HomeStack"
@@ -53,8 +54,16 @@ export const BottomTabNavigation = function () {
             headerShown: false,
           }}
         />
-        <Tab.Screen name="HomeTown" component={HomeTown} />
-        <Tab.Screen name="ArroundMe" component={AroundMe} />
+        <Tab.Screen
+          name="HomeTown"
+          component={HomeTown}
+          options={{headerShown: false}}
+        />
+        <Tab.Screen
+          name="ArroundMe"
+          component={AroundMe}
+          options={{headerShown: false}}
+        />
         <Tab.Screen
           name="ChattingStack"
           component={ChattingStack}
@@ -63,7 +72,10 @@ export const BottomTabNavigation = function () {
         <Tab.Screen
           name="MyCarrotStack"
           component={MyCarrotStack}
-          options={{tabBarLabel: '나의 당근', title: '나의 당근'}}
+          options={{
+            tabBarLabel: '나의 당근',
+            title: '나의 당근',
+          }}
         />
       </Tab.Navigator>
     </NavigationContainer>

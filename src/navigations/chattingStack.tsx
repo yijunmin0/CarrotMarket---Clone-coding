@@ -9,7 +9,7 @@ const Stack = createStackNavigator<ChattingStackParamList>();
 
 export const ChattingStack = function () {
   return (
-    <Stack.Navigator screenOptions={{headerShown: true}}>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Chatting" component={Chatting} />
       <Stack.Screen name="ChattingSpecific" component={ChattingSpecific} />
     </Stack.Navigator>

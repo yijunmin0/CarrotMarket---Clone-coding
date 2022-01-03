@@ -1,12 +1,17 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {View} from 'react-native';
-import {CalendarButton} from '../components/calendarButton';
+import {View, StyleSheet} from 'react-native';
+import {Header} from '../components/header';
+
 export const HomeTown = function () {
   return (
-    <View>
+    <View style={styles.view}>
+      <Header title={'동네생활'} />
       <Text>this is HomeTown</Text>
-      <CalendarButton />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  view: {flex: 1, backgroundColor: 'white'},
+});

@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {Product} from '../data/api';
-import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Props} from '../navigations/homeStack';
+import {useNavigation} from '@react-navigation/native';
 
 export type ProductProps = {
   product: Product;
 };
 
 export const HomeProductList: FC<ProductProps> = ({product}) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<Props['navigation']>();
   return (
     <TouchableOpacity
       onPress={() => {

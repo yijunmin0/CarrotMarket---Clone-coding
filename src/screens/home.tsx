@@ -4,6 +4,7 @@ import {StyleSheet, FlatList, View} from 'react-native';
 import {HomeProductList} from '../components/homeProductList';
 import {Product} from '../data/api';
 import {makeProductList} from '../data/api';
+import {Header} from '../components/header';
 
 export const Home = function () {
   const newProductList = function (num: number) {
@@ -26,7 +27,8 @@ export const Home = function () {
   const [isRefreshing] = useState<boolean>(false);
 
   return (
-    <View style={styles.flex}>
+    <View style={styles.view}>
+      <Header title="홈" />
       <FlatList
         style={styles.flatList}
         data={productList}
@@ -47,7 +49,7 @@ export const Home = function () {
 };
 
 const styles = StyleSheet.create({
-  flex: {flex: 1},
+  view: {flex: 1, backgroundColor: 'white'},
   flatList: {
     flex: 1,
     padding: 15,
