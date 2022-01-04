@@ -1,8 +1,10 @@
 import React, {FC} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
 import {Product} from '../data/api';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {Props} from '../navigations/homeStack';
+import {Props} from '../navigations/HomeStack';
 import {useNavigation} from '@react-navigation/native';
 
 export type ProductProps = {

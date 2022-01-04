@@ -1,7 +1,9 @@
 import React from 'react';
-import {Text, View, Button, StyleSheet} from 'react-native';
-import {Props} from '../navigations/myCarrotStack';
-import {Header} from '../components/header';
+import {Button, StyleSheet} from 'react-native';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
+import {Props} from '../navigations/MyCarrotStack';
+import {Header} from '../components/Header';
 
 export const MyCarrot = function ({navigation}: Props) {
   return (
@@ -17,5 +19,5 @@ export const MyCarrot = function ({navigation}: Props) {
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1, backgroundColor: 'white'},
+  view: {flex: 1},
 });

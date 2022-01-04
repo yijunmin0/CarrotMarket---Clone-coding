@@ -1,12 +1,14 @@
-import React, {FC} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import React, {FC, ReactElement} from 'react';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
 
 type HeaderProps = {
   title: string;
   titlePress?: () => void;
-  rightIcon?: any;
+  rightIcon?: ReactElement;
   rightIconPress?: () => void;
-  leftIcon?: any;
+  leftIcon?: ReactElement;
   leftIconPress?: () => void;
 };
 
@@ -62,6 +64,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     height: '100%',
     justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
   },
   leftIcon: {
     position: 'absolute',

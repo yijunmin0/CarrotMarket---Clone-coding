@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {BottomTabNavigation} from './src/navigations/bottomTabNavigation';
+import {BottomTabNavigation} from './src/navigations/BottomTabNavigation';
 
 export default function App() {
   return (

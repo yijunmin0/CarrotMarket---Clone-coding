@@ -2,12 +2,12 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {Image, StyleSheet} from 'react-native';
-import {HomeTown} from '../screens/hometown';
-import {AroundMe} from '../screens/aroundMe';
+import {HomeTown} from '../screens/Hometown';
+import {AroundMe} from '../screens/AroundMe';
 import {ScreenName} from '../data/screenName';
-import {HomeStack} from '../navigations/homeStack';
-import {MyCarrotStack} from '../navigations/myCarrotStack';
-import {ChattingStack} from '../navigations/chattingStack';
+import {HomeStack} from './HomeStack';
+import {MyCarrotStack} from './MyCarrotStack';
+import {ChattingStack} from './ChattingStack';
 
 const Tab = createBottomTabNavigator<ScreenName>();
 

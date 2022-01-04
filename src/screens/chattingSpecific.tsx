@@ -1,24 +1,25 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
-import {View} from 'react-native';
-import {Header} from '../components/header';
-import Icon from 'react-native-vector-icons/AntDesign';
+// import {useNavigation} from '@react-navigation/native';
+import {StyleSheet} from 'react-native';
+// import {Header} from '../components/Header';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
+// import Icon from 'react-native-vector-icons/AntDesign';
 
 export const ChattingSpecific = function () {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   return (
     <View style={styles.view}>
-      <Header
+      {/* <Header
         title={'채팅 상세'}
         leftIcon={<Icon name="arrowleft" size={20} />}
         leftIconPress={() => navigation.goBack()}
-      />
+      /> */}
       <Text>this is ChattingSpecific</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1, backgroundColor: 'white'},
+  view: {flex: 1},
 });

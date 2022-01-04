@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {useEffect} from 'react';
-import {StyleSheet, FlatList, View} from 'react-native';
-import {HomeProductList} from '../components/homeProductList';
+import {StyleSheet, FlatList} from 'react-native';
+import {View} from '../components/View';
+import {HomeProductList} from '../components/HomeProductList';
 import {Product} from '../data/api';
 import {makeProductList} from '../data/api';
-import {Header} from '../components/header';
+import {Header} from '../components/Header';
 
 export const Home = function () {
   const newProductList = function (num: number) {
@@ -49,7 +50,7 @@ export const Home = function () {
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1, backgroundColor: 'white'},
+  view: {flex: 1},
   flatList: {
     flex: 1,
     padding: 15,

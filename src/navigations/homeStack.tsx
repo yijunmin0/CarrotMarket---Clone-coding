@@ -1,8 +1,8 @@
 import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Home} from '../screens/home';
-import {ProductSpecific} from '../screens/productSpecific';
+import {Home} from '../screens/Home';
+import {ProductSpecific} from '../screens/ProductSpecific';
 const Stack = createStackNavigator<HomeStackParamList>();
 
 export function HomeStack() {

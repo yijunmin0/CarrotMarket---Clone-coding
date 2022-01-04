@@ -1,10 +1,11 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {StyleSheet} from 'react-native';
-import {Image, Text} from 'react-native';
-import {View} from 'react-native';
-import {Header} from '../components/header';
-import {ProductSpecificProps} from '../navigations/homeStack';
+import {Image} from 'react-native';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
+import {Header} from '../components/Header';
+import {ProductSpecificProps} from '../navigations/HomeStack';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 export const ProductSpecific = function ({route}: ProductSpecificProps) {
@@ -29,6 +30,6 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1, backgroundColor: 'white'},
+  view: {flex: 1},
   image: {flex: 1},
 });

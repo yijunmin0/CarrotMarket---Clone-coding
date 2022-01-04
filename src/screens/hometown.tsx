@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {View, StyleSheet} from 'react-native';
-import {Header} from '../components/header';
+import {StyleSheet} from 'react-native';
+import {Header} from '../components/Header';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
 
 export const HomeTown = function () {
   return (
@@ -13,5 +14,5 @@ export const HomeTown = function () {
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1, backgroundColor: 'white'},
+  view: {flex: 1},
 });
