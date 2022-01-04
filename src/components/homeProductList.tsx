@@ -1,24 +1,37 @@
 import React, {FC} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
+import {View} from '../components/View';
+import {Text} from '../components/Text';
 import {Product} from '../data/api';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Props} from '../navigations/HomeStack';
+import {useNavigation} from '@react-navigation/native';
 
 export type ProductProps = {
   product: Product;
 };
 
 export const HomeProductList: FC<ProductProps> = ({product}) => {
-  console.log(product);
+  const navigation = useNavigation<Props['navigation']>();
   return (
-    <View style={styles.view}>
-      <View style={styles.leftContents}>
-        <Image source={{uri: product.picture}} style={styles.image} />
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('ProductSpecific', {...product});
+      }}>
+      <View style={styles.view}>
+        <View style={styles.leftContents}>
+          <Image
+            source={{uri: product.picture, cache: 'reload'}}
+            style={styles.image}
+          />
+        </View>
+        <View style={styles.rightContents}>
+          <Text style={styles.title}>{product.title}</Text>
+          <Text style={styles.location}>location : {product.location}</Text>
+          <Text style={styles.price}>{product.price}$</Text>
+        </View>
       </View>
-      <View style={styles.rightContents}>
-        <Text style={styles.title}>{product.title}</Text>
-        <Text style={styles.location}>location : {product.location}</Text>
-        <Text style={styles.price}>{product.price}$</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -1,15 +1,21 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {Home} from './src/screens/home';
+import {BottomTabNavigation} from './src/navigations/BottomTabNavigation';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <Home />
+      <BottomTabNavigation />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  safeAreaView: {felx: 1, alignItems: 'center', justifyContent: 'center'},
+  safeAreaView: {
+    flex: 1,
+    flexGrow: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
 });
