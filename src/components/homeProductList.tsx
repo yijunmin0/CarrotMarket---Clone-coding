@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, Image} from 'react-native';
-import {View} from '../components/View';
-import {Text} from '../components/Text';
+import {View} from './View';
+import {Text} from './Text';
 import {Product} from '../data/api';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Props} from '../navigations/HomeStack';

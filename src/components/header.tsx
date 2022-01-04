@@ -1,7 +1,7 @@
 import React, {FC, ReactElement} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {View} from '../components/View';
-import {Text} from '../components/Text';
+import {View} from './View';
+import {Text} from './Text';
 
 type HeaderProps = {
   title: string;
