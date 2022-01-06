@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, StyleSheet} from 'react-native';
-import {View} from '../components/View';
-import {Text} from '../components/Text';
+import {View} from '../assets/styles/View';
+import {Text} from '../assets/styles/Text';
 // import {Header} from '../components/Header';
 import {Props} from '../navigations/ChattingStack';
 

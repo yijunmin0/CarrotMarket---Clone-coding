@@ -7,7 +7,7 @@ import {
 import {Chatting} from '../screens/Chatting';
 import {ChattingSpecific} from '../screens/ChattingSpecific';
 import {StackScreenProps} from '@react-navigation/stack';
-import {Text} from '../components/Text';
+import {Text} from '../assets/styles/Text';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const Stack = createStackNavigator<ChattingStackParamList>();

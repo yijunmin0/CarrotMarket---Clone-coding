@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Header} from '../components/Header';
-import {View} from '../components/View';
-import {Text} from '../components/Text';
+import {View} from '../assets/styles/View';
+import {Text} from '../assets/styles/Text';
 
 export const HomeTown = function () {
   return (

@@ -10,5 +10,9 @@ export const Text: FC<TextProps> = ({style, children, ...props}) => {
 };
 
 const styles = StyleSheet.create({
-  font: {fontFamily: Platform.OS === 'ios' ? 'Gill Sans' : 'sans-serif'},
+  font: {
+    fontFamily: Platform.OS === 'ios' ? 'Gill Sans' : 'sans-serif',
+    fontSize: 15,
+    fontWeight: '300',
+  },
 });

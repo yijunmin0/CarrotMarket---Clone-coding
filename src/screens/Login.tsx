@@ -7,6 +7,10 @@ import {
 import {useDispatch} from 'react-redux';
 import {login} from '../store/userSlice';
 
+type Error = {
+  code: string;
+};
+
 export const Login = function () {
   const dispatch = useDispatch();
   const signIn = async () => {
@@ -14,7 +18,8 @@ export const Login = function () {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
       dispatch(login(userInfo));
-    } catch (error) {
+    } catch (e: unknown) {
+      const error = e as Error;
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
       } else if (error.code === statusCodes.IN_PROGRESS) {

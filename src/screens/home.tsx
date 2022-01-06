@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useEffect} from 'react';
 import {StyleSheet, FlatList} from 'react-native';
-import {View} from '../components/View';
+import {View} from '../assets/styles/View';
 import {HomeProductList} from '../components/HomeProductList';
 import {Product} from '../data/api';
 import {makeProductList} from '../data/api';

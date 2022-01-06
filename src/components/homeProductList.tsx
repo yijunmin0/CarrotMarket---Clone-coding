@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, Image} from 'react-native';
-import {View} from './View';
-import {Text} from './Text';
+import {View} from '../assets/styles/View';
+import {Text} from '../assets/styles/Text';
 import {Product} from '../data/api';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Props} from '../navigations/HomeStack';
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   leftContents: {flex: 1},
   rightContents: {flex: 2, marginLeft: 5},
   image: {height: 100, resizeMode: 'cover', borderRadius: 10},
-  title: {fontSize: 15, fontWeight: '400', marginBottom: 8},
+  title: {fontWeight: '400', marginBottom: 8},
   location: {fontSize: 10, fontWeight: '400', marginBottom: 8},
-  price: {fontSize: 15, fontWeight: '600'},
+  price: {fontWeight: '600'},
 });
