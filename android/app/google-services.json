@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "830365779155",
+    "project_id": "clone-771e8",
+    "storage_bucket": "clone-771e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830365779155:android:7043761a2c1b74439c4026",
+        "android_client_info": {
+          "package_name": "com.clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830365779155-bgh3c2lik69os37s9con6duhbsosklq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTbWQRnrDhw9ljAPeZGiQ-dpABWvB3IsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830365779155-bgh3c2lik69os37s9con6duhbsosklq7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "830365779155-u36j75a1nf0sj74n8d0sopb6jb7jtan1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Blue.Clone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
