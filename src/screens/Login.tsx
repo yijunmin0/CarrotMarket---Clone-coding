@@ -4,13 +4,16 @@ import {
   statusCodes,
   GoogleSignin,
 } from 'react-native-google-login';
+import {useDispatch} from 'react-redux';
+import {login} from '../store/userSlice';
 
-export const Login = function ({setIsLogin}) {
+export const Login = function () {
+  const dispatch = useDispatch();
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      setIsLogin(true);
+      dispatch(login(userInfo));
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow

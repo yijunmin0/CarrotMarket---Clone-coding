@@ -17,6 +17,8 @@
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "@react-navigation/stack": "^6.0.11",
+    "@reduxjs/toolkit": "^1.7.1",
+    "@types/react-redux": "^7.1.21",
     "faker": "^5.5.3",
     "pod-install": "^0.1.30",
     "react": "17.0.2",
@@ -26,6 +28,9 @@
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
     "react-native-vector-icons": "^9.0.0",
+    "react-redux": "^7.2.6",
+    "react-redux-toolkit": "^0.0.1-alpha.2",
+    "redux": "^4.1.2",
     "yarn": "^1.22.17"
   },
   "devDependencies": {
