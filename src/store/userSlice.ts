@@ -19,7 +19,7 @@ const userSlice = createSlice({
       state.userInfo = action.payload;
     },
     logout(state) {
-      state.isLogin = true;
+      state.isLogin = false;
       state.userInfo = undefined;
     },
   },

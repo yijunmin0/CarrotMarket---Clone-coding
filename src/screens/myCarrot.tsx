@@ -4,8 +4,11 @@ import {View} from '../components/View';
 import {Text} from '../components/Text';
 import {Props} from '../navigations/MyCarrotStack';
 import {Header} from '../components/Header';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store/store';
 
 export const MyCarrot = function ({navigation}: Props) {
+  const profile = useSelector((state: RootState) => state.user.userInfo);
   return (
     <View style={styles.view}>
       <Header title={'나의당근'} />
