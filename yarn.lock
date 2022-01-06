@@ -5890,6 +5890,11 @@ react-native-gesture-handler@^2.1.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-google-login@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/react-native-google-login/-/react-native-google-login-1.2.5.tgz#2f86f55f1afdc58c5e87ee8a5ca0a71bce9a3738"
+  integrity sha512-igg/ZaPsoxq05YHxrHCuIYSV2wpEFUFjeYmbGkhhaUOEjyIplzNx82PmooSuljoyAJa7HcKE+mTkslBW/O9QJA==
+
 react-native-safe-area-context@^3.3.2:
   version "3.3.2"
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.3.2.tgz"

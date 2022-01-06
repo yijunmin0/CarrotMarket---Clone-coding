@@ -33,6 +33,6 @@ export async function makeProductList(num: number) {
     title: makeRandom.randomtitle(),
     location: makeRandom.randomCity(),
   }));
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 1000));
   return productLists;
 }
