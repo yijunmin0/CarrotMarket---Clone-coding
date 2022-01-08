@@ -4,31 +4,29 @@ import {View} from '../assets/styles/View';
 import {Text} from '../assets/styles/Text';
 import {Props} from '../navigations/MyCarrotStack';
 import {Header} from '../components/Header';
-import {useSelector} from 'react-redux';
-import {RootState} from '../store/store';
 import {Colors} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {MyCarrotContentBox} from '../components/MyCarrotContentBox';
 import {MyCarrotContent} from '../components/MyCarrotContent';
+import useUser from '../hooks/useUser';
 
 export const MyCarrot = function ({navigation}: Props) {
-  const profile = useSelector((state: RootState) => state.user.userInfo);
+  const userInfo = useUser().userInfo;
   return (
     <ScrollView style={styles.backview}>
       <Header title={'나의당근'} />
-      <View></View>
       <View style={styles.profile}>
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => navigation.navigate('Profile')}>
           <View style={styles.profileHead}>
             <Image
-              source={{uri: profile?.user.photo} as {}}
+              source={{uri: userInfo?.user.photo} as {}}
               style={styles.profileImage}
             />
             <View style={styles.profileHeadMiddle}>
-              <Text style={styles.textName}>{profile?.user.givenName}</Text>
-              <Text style={styles.textSub}>{profile?.user.email}</Text>
+              <Text style={styles.textName}>{userInfo?.user.givenName}</Text>
+              <Text style={styles.textSub}>{userInfo?.user.email}</Text>
             </View>
             <View style={styles.profileHeadLast}>
               <Icon name="right" size={20} />

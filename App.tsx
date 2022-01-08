@@ -1,12 +1,11 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {useSelector} from 'react-redux';
+import useUser from './src/hooks/useUser';
 import {BottomTabNavigation} from './src/navigations/BottomTabNavigation';
 import {Login} from './src/screens/Login';
-import {RootState} from './src/store/store';
 
 export default function App() {
-  const isLogin = useSelector((state: RootState) => state.user.isLogin);
+  const isLogin = useUser().isLogin;
   return (
     <SafeAreaView style={styles.safeAreaView}>
       {isLogin ? <BottomTabNavigation /> : <Login />}

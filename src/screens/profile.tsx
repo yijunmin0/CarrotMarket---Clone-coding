@@ -5,14 +5,14 @@ import {Text} from '../assets/styles/Text';
 import {Header} from '../components/Header';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
 import {logout} from '../store/userSlice';
+import {useDispatch} from 'react-redux';
 import {GoogleSignin} from 'react-native-google-login';
-import {RootState} from '../store/store';
 import {Colors} from 'react-native-paper';
+import useUser from '../hooks/useUser';
 
 export const Profile = function () {
-  const profile = useSelector((state: RootState) => state.user.userInfo);
+  const userInfo = useUser().userInfo;
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const signOut = async () => {
@@ -34,12 +34,12 @@ export const Profile = function () {
       <View style={styles.profile}>
         <View style={styles.profileHead}>
           <Image
-            source={{uri: profile?.user.photo} as {}}
+            source={{uri: userInfo?.user.photo} as {}}
             style={styles.profileImage}
           />
           <View style={styles.profileHeadMiddle}>
-            <Text style={styles.textName}>{profile?.user.givenName}</Text>
-            <Text style={styles.textSub}>{profile?.user.email}</Text>
+            <Text style={styles.textName}>{userInfo?.user.givenName}</Text>
+            <Text style={styles.textSub}>{userInfo?.user.email}</Text>
           </View>
         </View>
         <Button title="로그아웃" onPress={signOut} />
