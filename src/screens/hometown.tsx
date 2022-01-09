@@ -39,7 +39,6 @@ export const HomeTown = function () {
         }}>
         Button
       </Button>
-      <Button title="asnyc storage 저장">Button</Button>
     </View>
   );
 };

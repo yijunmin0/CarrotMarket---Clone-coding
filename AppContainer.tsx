@@ -3,6 +3,8 @@ import App from './App';
 import store from './src/store/store';
 import {Provider as StoreProvider} from 'react-redux';
 import {GoogleSignin} from 'react-native-google-login';
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistor} from './src/store/store';
 
 const AppContainer = function () {
   useEffect(() => {
@@ -15,7 +17,9 @@ const AppContainer = function () {
   }, []);
   return (
     <StoreProvider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </StoreProvider>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home} from '../screens/Home';
-import {ProductSpecific} from '../screens/ProductSpecific';
+import {ProductSpecific} from '../screens/productSpecific';
 const Stack = createStackNavigator<HomeStackParamList>();
 
 export function HomeStack() {

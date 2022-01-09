@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {MyCarrot} from '../screens/MyCarrot';
-import {Profile} from '../screens/Profile';
+import {MyCarrot} from '../screens/myCarrot';
+import {Profile} from '../screens/profile';
 import {Dummy} from '../screens/Dummy';
 import {StackScreenProps} from '@react-navigation/stack';
 
