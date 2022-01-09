@@ -11,7 +11,7 @@ type User = {
 const initialState: User = {isLogin: false};
 
 const userSlice = createSlice({
-  name: 'login',
+  name: 'user',
   initialState,
   reducers: {
     login(state, action: PayloadAction<UserInfoProps>) {
