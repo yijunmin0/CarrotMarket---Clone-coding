@@ -72,63 +72,77 @@ export const MyCarrot = function ({navigation}: Props) {
       <MyCarrotContentBox>
         <MyCarrotContent
           icon={<Icon name="team" size={20} />}
-          title="친구초대"
+          title="제스처/애니메이션 연습1"
+          route="Practice1"
         />
         <MyCarrotContent
           icon={<Icon name="sharealt" size={20} />}
-          title="당근마켓 공유"
+          title="제스처/애니메이션 연습2"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="notification" size={20} />}
-          title="공지사항"
+          title="제스처/애니메이션 연습3"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="tagso" size={20} />}
-          title="자주 묻는 질문"
+          title="제스처/애니메이션 연습4"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="car" size={20} />}
           title="비즈프로필 만들기"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="bank" size={20} />}
           title="동네홍보 글"
+          route="Dummy"
         />
       </MyCarrotContentBox>
       <MyCarrotContentBox>
         <MyCarrotContent
           icon={<Icon name="laptop" size={20} />}
           title="내 동네 설정"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="staro" size={20} />}
           title="동네 인증하기"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="filter" size={20} />}
           title="키워드 알림"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="meh" size={20} />}
           title="관심 카테고리 설정"
+          route="Dummy"
         />
       </MyCarrotContentBox>
       <MyCarrotContentBox>
         <MyCarrotContent
           icon={<Icon name="shoppingcart" size={20} />}
           title="모아보기"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="save" size={20} />}
           title="당근 가계부"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="videocamera" size={20} />}
           title="받은 쿠폰함"
+          route="Dummy"
         />
         <MyCarrotContent
           icon={<Icon name="totop" size={20} />}
           title="내 단골 가게"
+          route="Dummy"
         />
       </MyCarrotContentBox>
     </ScrollView>

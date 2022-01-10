@@ -5,15 +5,18 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Text} from '../assets/styles/Text';
 import {View} from '../assets/styles/View';
 import {Props} from '../navigations/MyCarrotStack';
+import {MyCarrotStackParamList} from '../navigations/MyCarrotStack';
 
 type MyCarrotContentProps = {
   icon: ReactElement;
   title: string;
+  route: keyof MyCarrotStackParamList;
 };
 
 export const MyCarrotContent: FC<MyCarrotContentProps> = function ({
   icon,
   title,
+  route,
 }) {
   const navigation = useNavigation<Props['navigation']>();
   return (
@@ -21,7 +24,7 @@ export const MyCarrotContent: FC<MyCarrotContentProps> = function ({
       <TouchableOpacity
         style={styles.view}
         activeOpacity={1}
-        onPress={() => navigation.navigate('Dummy', {title})}>
+        onPress={() => navigation.navigate(route, {title})}>
         <View style={styles.viewIcon}>{icon}</View>
         <Text>{title}</Text>
       </TouchableOpacity>
