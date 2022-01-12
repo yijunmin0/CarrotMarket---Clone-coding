@@ -78,22 +78,22 @@ export const MyCarrot = function ({navigation}: Props) {
         <MyCarrotContent
           icon={<Icon name="sharealt" size={20} />}
           title="제스처/애니메이션 연습2"
-          route="Dummy"
+          route="Practice2"
         />
         <MyCarrotContent
           icon={<Icon name="notification" size={20} />}
           title="제스처/애니메이션 연습3"
-          route="Dummy"
+          route="Practice3"
         />
         <MyCarrotContent
           icon={<Icon name="tagso" size={20} />}
           title="제스처/애니메이션 연습4"
-          route="Dummy"
+          route="Practice4"
         />
         <MyCarrotContent
           icon={<Icon name="car" size={20} />}
-          title="비즈프로필 만들기"
-          route="Dummy"
+          title="제스처/애니메이션 연습5"
+          route="Practice5"
         />
         <MyCarrotContent
           icon={<Icon name="bank" size={20} />}

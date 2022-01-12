@@ -1,16 +1,36 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Text} from '../assets/styles/Text';
 import {View} from '../assets/styles/View';
 import {DummyProps} from '../navigations/MyCarrotStack';
 import {Header} from '../components/Header';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Animated} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 export const Dummy = function ({route}: DummyProps) {
   const {title} = route.params;
   const navigation = useNavigation();
+  const titleTranslation = useRef(new Animated.Value(0)).current;
+  const contentTranslation = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(titleTranslation, {
+      toValue: 145,
+      duration: 2000,
+      delay: 500,
+      useNativeDriver: true,
+    }).start();
+  }, [titleTranslation]);
+
+  useEffect(() => {
+    Animated.timing(contentTranslation, {
+      toValue: 1,
+      duration: 3000,
+      delay: 500,
+      useNativeDriver: false,
+    }).start();
+  }, [contentTranslation]);
   return (
     <View style={styles.view}>
       <Header
@@ -18,9 +38,30 @@ export const Dummy = function ({route}: DummyProps) {
         leftIcon={<Icon name="arrowleft" size={20} />}
         leftIconPress={() => navigation.goBack()}
       />
-      <View style={styles.contentView}>
-        <Text style={styles.title}>진달래꽃</Text>
-        <Text style={styles.contents}>
+      <View style={styles.mainView}>
+        <Animated.View
+          style={{
+            ...styles.titleView,
+            transform: [
+              {translateX: titleTranslation},
+              {
+                rotate: titleTranslation.interpolate({
+                  inputRange: [0, 145],
+                  outputRange: ['0deg', '1080deg'],
+                }),
+              },
+            ],
+          }}>
+          <Text style={styles.title}>진달래꽃</Text>
+        </Animated.View>
+        <Animated.Text
+          style={{
+            ...styles.contents,
+            color: contentTranslation.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['white', 'black'],
+            }),
+          }}>
           나 보기가 역겨워{'\n'}
           가실 때에는{'\n'}
           말없이 고이 보내 드리우리다{'\n'}
@@ -35,25 +76,25 @@ export const Dummy = function ({route}: DummyProps) {
           {'\n'}나 보기가 역겨워{'\n'}
           가실 때에는 죽어도{'\n'}
           아니 눈물 흘리우리다
-        </Text>
+        </Animated.Text>
+        <FastImage
+          source={require('../assets/images/sunRise.gif')}
+          style={styles.gif}
+        />
       </View>
-      <FastImage
-        source={require('../assets/images/sunRise.gif')}
-        style={styles.gif}
-      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   view: {flex: 1},
-  contentView: {marginTop: 20},
+  mainView: {marginTop: 20, flex: 1},
+  titleView: {alignSelf: 'flex-start'},
   title: {
     fontSize: 30,
     fontWeight: '400',
-    textAlign: 'center',
     marginBottom: 20,
   },
-  contents: {textAlign: 'center'},
+  contents: {textAlign: 'center', color: 'white'},
   gif: {width: 300, height: 200, marginTop: 20, alignSelf: 'center'},
 });
