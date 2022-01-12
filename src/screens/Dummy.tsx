@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, Animated} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {SafeAreaView} from '../assets/styles/SafeAreaView';
 
 export const Dummy = function ({route}: DummyProps) {
   const {title} = route.params;
@@ -32,7 +33,7 @@ export const Dummy = function ({route}: DummyProps) {
     }).start();
   }, [contentTranslation]);
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Header
         title={title}
         leftIcon={<Icon name="arrowleft" size={20} />}
@@ -82,12 +83,12 @@ export const Dummy = function ({route}: DummyProps) {
           style={styles.gif}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   mainView: {marginTop: 20, flex: 1},
   titleView: {alignSelf: 'flex-start'},
   title: {

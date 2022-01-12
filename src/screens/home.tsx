@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useEffect} from 'react';
 import {StyleSheet, FlatList} from 'react-native';
 import {View} from '../assets/styles/View';
+import {SafeAreaView} from '../assets/styles/SafeAreaView';
 import {HomeProductList} from '../components/HomeProductList';
 import {Product} from '../data/api';
 import {makeProductList} from '../data/api';
@@ -28,7 +29,7 @@ export const Home = function () {
   const [isRefreshing] = useState<boolean>(false);
 
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Header title="홈" />
       <FlatList
         style={styles.flatList}
@@ -45,12 +46,12 @@ export const Home = function () {
         onRefresh={onRefresh}
         removeClippedSubviews={true}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   flatList: {
     flex: 1,
     padding: 15,

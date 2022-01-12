@@ -10,21 +10,33 @@ interface HeaderProps extends ViewProps {
   rightIconPress?: () => void;
   leftIcon?: ReactElement;
   leftIconPress?: () => void;
+  dark?: boolean;
 }
 
-export const Header: FC<HeaderProps> = (
-  {title, titlePress, rightIcon, rightIconPress, leftIcon, leftIconPress},
-  props,
-) => {
+export const headerHegiht = 44;
+
+export const Header: FC<HeaderProps> = ({
+  title,
+  titlePress,
+  rightIcon,
+  rightIconPress,
+  leftIcon,
+  leftIconPress,
+  style,
+  dark = true,
+}) => {
   return (
     <View
       style={[
         styles.container,
-        props.style,
+        style,
+        // eslint-disable-next-line react-native/no-inline-styles
+        {backgroundColor: dark ? 'white' : 'transparent'},
+        {borderBottomWidth: dark ? 0.5 : 0.0},
         // eslint-disable-next-line react-native/no-inline-styles
         {justifyContent: leftIcon ? 'center' : 'flex-start'},
       ]}>
-      <View style={styles.leftIcon}>
+      <View style={styles.leftBox}>
         {leftIcon && (
           <TouchableOpacity onPress={leftIconPress}>
             {leftIcon}
@@ -35,10 +47,13 @@ export const Header: FC<HeaderProps> = (
         <TouchableOpacity
           onPress={titlePress}
           disabled={titlePress ? false : true}>
-          <Text style={styles.titleText}> {title} </Text>
+          <Text style={{...styles.titleText, color: dark ? 'black' : 'white'}}>
+            {' '}
+            {title}{' '}
+          </Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.rightIcon}>
+      <View style={styles.rightBox}>
         {rightIcon && (
           <TouchableOpacity onPress={rightIconPress}>
             {rightIcon}
@@ -51,7 +66,8 @@ export const Header: FC<HeaderProps> = (
 
 const styles = StyleSheet.create({
   container: {
-    height: 44,
+    width: '100%',
+    height: headerHegiht,
     borderBottomWidth: 0.5,
     borderBottomColor: 'lightgray',
     flexDirection: 'row',
@@ -61,19 +77,21 @@ const styles = StyleSheet.create({
   titleContainer: {
     height: '100%',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0)',
+    backgroundColor: 'transparent',
   },
-  leftIcon: {
+  leftBox: {
     position: 'absolute',
     left: 10,
     height: '100%',
     justifyContent: 'center',
+    backgroundColor: 'transparent',
   },
-  rightIcon: {
+  rightBox: {
     position: 'absolute',
     right: 10,
     height: '100%',
     justifyContent: 'center',
+    backgroundColor: 'transparent',
   },
   titleText: {
     textAlign: 'center',

@@ -1,13 +1,13 @@
 import React from 'react';
 import {Button, StyleSheet} from 'react-native';
-import {View} from '../assets/styles/View';
+import {SafeAreaView} from '../assets/styles/SafeAreaView';
 import {Text} from '../assets/styles/Text';
 // import {Header} from '../components/Header';
 import {Props} from '../navigations/ChattingStack';
 
 export const Chatting = function ({navigation}: Props) {
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       {/* <Header title={'채팅'} /> */}
       <Text>this is Chatting</Text>
       <Button
@@ -16,10 +16,10 @@ export const Chatting = function ({navigation}: Props) {
           navigation.navigate('ChattingSpecific');
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
 });

@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import {StyleSheet, Animated} from 'react-native';
 import {Header} from '../../components/Header';
 import {View} from '../../assets/styles/View';
+import {SafeAreaView} from '../../assets/styles/SafeAreaView';
 
 export const Practice6 = function () {
   const scrolling = useRef(new Animated.Value(0)).current;
@@ -11,7 +12,7 @@ export const Practice6 = function () {
     extrapolate: 'clamp',
   });
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Animated.View style={{transform: [{translateY: translation}]}}>
         <Header title="Practice5" />
       </Animated.View>
@@ -25,12 +26,12 @@ export const Practice6 = function () {
         )}>
         <View style={styles.innerLongView} />
       </Animated.ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   scrollView: {flex: 1},
   innerLongView: {flex: 1, height: 2000},
 });

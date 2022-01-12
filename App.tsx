@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import useUser from './src/hooks/useUser';
 import {BottomTabNavigation} from './src/navigations/BottomTabNavigation';
 import {Login} from './src/screens/Login';
@@ -7,14 +7,14 @@ import {Login} from './src/screens/Login';
 export default function App() {
   const isLogin = useUser().isLogin;
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <View style={styles.areaView}>
       {isLogin ? <BottomTabNavigation /> : <Login />}
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  areaView: {
     flex: 1,
     flexGrow: 1,
     alignItems: 'center',

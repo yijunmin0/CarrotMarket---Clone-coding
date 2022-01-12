@@ -2,6 +2,7 @@ import React, {useRef, useEffect} from 'react';
 import {StyleSheet, Animated} from 'react-native';
 import {Header} from '../../components/Header';
 import {View} from '../../assets/styles/View';
+import {SafeAreaView} from '../../assets/styles/SafeAreaView';
 
 export const Practice3 = function () {
   const translation1 = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
@@ -98,7 +99,7 @@ export const Practice3 = function () {
   }, [firstOpacity, secondOpacity, thirdOpacity]);
 
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Header title="Practice3" />
       <View style={styles.seperate}>
         <View>
@@ -129,12 +130,12 @@ export const Practice3 = function () {
           <Animated.View style={{...styles.squareBox, opacity: thirdOpacity}} />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   squareBox: {
     width: 100,
     height: 100,

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, Button} from 'react-native';
 import {Header} from '../components/Header';
-import {View} from '../assets/styles/View';
 import {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {Colors} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../store/store';
 import {saveMemo} from '../store/memoSlice';
+import {SafeAreaView} from '../assets/styles/SafeAreaView';
 
 export const HomeTown = function () {
   const storedMemo = useSelector((state: RootState) => state.memo.memo);
@@ -21,7 +21,7 @@ export const HomeTown = function () {
     return unsubscribe;
   }, [navigation, storedMemo]);
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Header title={'동네생활'} />
       <TextInput
         value={memo}
@@ -39,12 +39,12 @@ export const HomeTown = function () {
         }}>
         Button
       </Button>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   textInput: {
     width: '80%',
     height: '20%',

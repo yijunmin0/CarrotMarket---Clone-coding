@@ -10,6 +10,7 @@ import {useDispatch} from 'react-redux';
 import {GoogleSignin} from 'react-native-google-login';
 import {Colors} from 'react-native-paper';
 import useUser from '../hooks/useUser';
+import {SafeAreaView} from '../assets/styles/SafeAreaView';
 
 export const Profile = function () {
   const userInfo = useUser().userInfo;
@@ -25,7 +26,7 @@ export const Profile = function () {
     }
   };
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Header
         title={'프로필'}
         leftIcon={<Icon name="arrowleft" size={20} />}
@@ -44,12 +45,12 @@ export const Profile = function () {
         </View>
         <Button title="로그아웃" onPress={signOut} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   profile: {padding: 15},
   profileHead: {
     flexDirection: 'row',

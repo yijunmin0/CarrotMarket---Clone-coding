@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import {StyleSheet, Animated, Easing, Dimensions} from 'react-native';
 import {Header} from '../../components/Header';
-import {View} from '../../assets/styles/View';
+import {SafeAreaView} from '../../assets/styles/SafeAreaView';
 
 export const Practice2 = function () {
   const translation1 = useRef(new Animated.Value(0)).current;
@@ -51,7 +51,7 @@ export const Practice2 = function () {
   }, [translation5, width]);
 
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Header title="Practice2" />
       <Animated.View
         style={{...styles.squareBox, transform: [{translateX: translation1}]}}
@@ -68,12 +68,12 @@ export const Practice2 = function () {
       <Animated.View
         style={{...styles.squareBox, transform: [{translateX: translation5}]}}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   squareBox: {
     width: 100,
     height: 100,

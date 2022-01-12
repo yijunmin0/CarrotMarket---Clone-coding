@@ -3,6 +3,7 @@ import {StyleSheet, Animated} from 'react-native';
 import {Header} from '../../components/Header';
 import {View} from '../../assets/styles/View';
 import {ScrollView} from 'react-native-gesture-handler';
+import {SafeAreaView} from '../../assets/styles/SafeAreaView';
 
 export const Practice5 = function () {
   const [headerShown, setHeaderShown] = useState(false);
@@ -15,7 +16,7 @@ export const Practice5 = function () {
     }).start();
   }, [headerShown, translation]);
   return (
-    <View style={styles.view}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Animated.View style={{transform: [{translateY: translation}]}}>
         <Header title="Practice5" />
       </Animated.View>
@@ -32,12 +33,12 @@ export const Practice5 = function () {
         scrollEventThrottle={16}>
         <View style={styles.innerLongView} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  safeAreaView: {flex: 1},
   scrollView: {flex: 1},
   innerLongView: {flex: 1, height: 2000},
 });
