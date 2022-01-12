@@ -97,8 +97,8 @@ export const MyCarrot = function ({navigation}: Props) {
         />
         <MyCarrotContent
           icon={<Icon name="bank" size={20} />}
-          title="동네홍보 글"
-          route="Dummy"
+          title="제스처/애니메이션 연습6"
+          route="Practice6"
         />
       </MyCarrotContentBox>
       <MyCarrotContentBox>

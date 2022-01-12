@@ -8,6 +8,7 @@ import {Practice2} from '../screens/practice/Practice2';
 import {Practice3} from '../screens/practice/Practice3';
 import {Practice4} from '../screens/practice/Practice4';
 import {Practice5} from '../screens/practice/Practice5';
+import {Practice6} from '../screens/practice/Practice6';
 import {StackScreenProps} from '@react-navigation/stack';
 
 const Stack = createStackNavigator<MyCarrotStackParamList>();
@@ -23,6 +24,7 @@ export const MyCarrotStack = function () {
       <Stack.Screen name="Practice3" component={Practice3} />
       <Stack.Screen name="Practice4" component={Practice4} />
       <Stack.Screen name="Practice5" component={Practice5} />
+      <Stack.Screen name="Practice6" component={Practice6} />
     </Stack.Navigator>
   );
 };
@@ -36,6 +38,7 @@ export type MyCarrotStackParamList = {
   Practice3: undefined;
   Practice4: undefined;
   Practice5: undefined;
+  Practice6: undefined;
 };
 
 export type Props = StackScreenProps<MyCarrotStackParamList>;
