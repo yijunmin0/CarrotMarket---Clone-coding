@@ -1,29 +1,26 @@
 import React, {FC, ReactElement} from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity, ViewProps} from 'react-native';
 import {View} from '../assets/styles/View';
 import {Text} from '../assets/styles/Text';
 
-type HeaderProps = {
+interface HeaderProps extends ViewProps {
   title: string;
   titlePress?: () => void;
   rightIcon?: ReactElement;
   rightIconPress?: () => void;
   leftIcon?: ReactElement;
   leftIconPress?: () => void;
-};
+}
 
-export const Header: FC<HeaderProps> = ({
-  title,
-  titlePress,
-  rightIcon,
-  rightIconPress,
-  leftIcon,
-  leftIconPress,
-}) => {
+export const Header: FC<HeaderProps> = (
+  {title, titlePress, rightIcon, rightIconPress, leftIcon, leftIconPress},
+  props,
+) => {
   return (
     <View
       style={[
         styles.container,
+        props.style,
         // eslint-disable-next-line react-native/no-inline-styles
         {justifyContent: leftIcon ? 'center' : 'flex-start'},
       ]}>
