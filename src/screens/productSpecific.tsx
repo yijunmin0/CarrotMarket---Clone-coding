@@ -11,6 +11,7 @@ import {View} from '../assets/styles/View';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const os = Platform.OS;
+const standard = 40;
 
 export const ProductSpecific = function ({route}: ProductSpecificProps) {
   const {id, picture, price, title, location} = route.params;
@@ -19,11 +20,12 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
   const scrolling = useRef(new Animated.Value(0)).current;
   const translationView = scrolling.interpolate({
     inputRange: [-200, 0, 0],
-    outputRange: [200, 0, 0],
+    outputRange: [100, 0, 0],
+    //이 비율을 통해서 내려가는 정도를 세팅할 수 있음
   });
   const translationImage = scrolling.interpolate({
-    inputRange: [-400, -50, -50],
-    outputRange: [2.5, 1, 1],
+    inputRange: [-400, -standard, -standard],
+    outputRange: [2.8, 1, 1],
   });
   const [dark, setDark] = useState(false);
   return (
@@ -54,10 +56,11 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
         dark={dark}
       />
       <Animated.ScrollView
-        style={{
-          flex: 1,
-          transform: [{translateY: Animated.multiply(translationView, -1)}],
-        }}
+        style={
+          {
+            // transform: [{translateY: Animated.multiply(translationView, -1.05)}],
+          }
+        }
         scrollEventThrottle={1}
         onScroll={event => {
           scrolling.setValue(event.nativeEvent.contentOffset.y);
@@ -74,6 +77,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
           source={{uri: picture}}
           style={{
             ...styles.image,
+            top: -standard,
             transform: [{scale: translationImage}],
           }}
         />
@@ -81,7 +85,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
           style={{
             backgroundColor: 'white',
             transform: [{translateY: translationView}],
-            top: -100,
+            top: -2 * standard,
           }}>
           <Text>{id}</Text>
           <Text>{price}</Text>
@@ -105,7 +109,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
 };
 
 const styles = StyleSheet.create({
-  view: {flex: 1},
+  view: {flex: 1, backgroundColor: 'white'},
   headerEmptyView: {
     position: 'absolute',
     top: 0,
@@ -114,6 +118,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   spaceView: {
+    // backgroundColor: 'blue',
     width: '100%',
     height: 1000,
   },
@@ -123,7 +128,6 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   image: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').width + 100,
+    height: Dimensions.get('window').width + 2 * standard,
   },
 });
