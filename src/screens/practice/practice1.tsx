@@ -7,14 +7,12 @@ const CURSOR_SIDE_SIZE = 30;
 const CURSOR_HALF_SIDE_SIZE = CURSOR_SIDE_SIZE / 2;
 
 export const Practice1 = function () {
-  console.log(new Error().stack);
   const touch = useRef(
     new Animated.ValueXY({
       x: Dimensions.get('window').width / 2,
       y: Dimensions.get('window').height / 2,
     }),
   ).current;
-  console.log(touch);
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <Animated.View

@@ -9,7 +9,7 @@ export const Practice4 = function () {
   useEffect(() => {
     Animated.timing(translation, {
       toValue: 300,
-      duration: 1000,
+      duration: 3000,
       useNativeDriver: false,
     }).start();
   }, [translation]);
@@ -22,9 +22,75 @@ export const Practice4 = function () {
           transform: [
             {translateX: translation},
             {
-              rotate: translation.interpolate({
+              rotateX: translation.interpolate({
                 inputRange: [0, 300],
                 outputRange: ['0deg', '360deg'],
+              }),
+            },
+          ],
+          opacity: translation.interpolate({
+            inputRange: [0, 300],
+            outputRange: [1, 0],
+          }),
+          backgroundColor: translation.interpolate({
+            inputRange: [0, 300],
+            outputRange: ['orange', 'purple'],
+          }),
+        }}
+      />
+      <Animated.View
+        style={{
+          ...styles.squareBox,
+          transform: [
+            {translateX: translation},
+            {
+              rotateY: translation.interpolate({
+                inputRange: [0, 300],
+                outputRange: ['0deg', '360deg'],
+              }),
+            },
+          ],
+          opacity: translation.interpolate({
+            inputRange: [0, 300],
+            outputRange: [1, 0],
+          }),
+          backgroundColor: translation.interpolate({
+            inputRange: [0, 300],
+            outputRange: ['orange', 'purple'],
+          }),
+        }}
+      />
+      <Animated.View
+        style={{
+          ...styles.squareBox,
+          transform: [
+            {translateX: translation},
+            {
+              rotateZ: translation.interpolate({
+                inputRange: [0, 300],
+                outputRange: ['0deg', '360deg'],
+              }),
+            },
+          ],
+          opacity: translation.interpolate({
+            inputRange: [0, 300],
+            outputRange: [1, 0],
+          }),
+          backgroundColor: translation.interpolate({
+            inputRange: [0, 300],
+            outputRange: ['orange', 'purple'],
+          }),
+        }}
+      />
+      <Animated.View
+        style={{
+          ...styles.squareBox,
+          transform: [
+            {translateX: translation},
+            {
+              scale: translation.interpolate({
+                inputRange: [0, 150, 300],
+                outputRange: [0, 2, 0],
               }),
             },
           ],
