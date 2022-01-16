@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import {Animated, Button, StyleSheet, Dimensions} from 'react-native';
 import {Header} from '../../components/Header';
 import {SafeAreaView} from '../../assets/styles/SafeAreaView';

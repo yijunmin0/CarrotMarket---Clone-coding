@@ -1,3 +1,5 @@
+//use & understand useShared Value, useAnimatedStyle, withTiming, withRepeat
+
 import React, {useEffect} from 'react';
 import {View} from '../../assets/styles/View';
 import {StyleSheet} from 'react-native';

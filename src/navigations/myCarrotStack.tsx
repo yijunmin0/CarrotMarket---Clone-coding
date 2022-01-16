@@ -12,7 +12,9 @@ import {Practice6} from '../screens/practice/Practice6';
 import {ReAni1_1} from '../screens/practice/ReAni1_1';
 import {ReAni1_2} from '../screens/practice/ReAni1_2';
 import {ReAni2} from '../screens/practice/ReAni2';
-import {ReAni3} from '../screens/practice/ReAni3';
+import {ReAni3_1} from '../screens/practice/ReAni3_1';
+import {ReAni3_2} from '../screens/practice/ReAni3_2';
+import {ReAni3_3} from '../screens/practice/ReAni3_3';
 import {ReAni4} from '../screens/practice/ReAni4';
 import {ReAni5} from '../screens/practice/ReAni5';
 import {ReAni6} from '../screens/practice/ReAni6';
@@ -36,7 +38,9 @@ export const MyCarrotStack = function () {
       <Stack.Screen name="ReAni1_1" component={ReAni1_1} />
       <Stack.Screen name="ReAni1_2" component={ReAni1_2} />
       <Stack.Screen name="ReAni2" component={ReAni2} />
-      <Stack.Screen name="ReAni3" component={ReAni3} />
+      <Stack.Screen name="ReAni3_1" component={ReAni3_1} />
+      <Stack.Screen name="ReAni3_2" component={ReAni3_2} />
+      <Stack.Screen name="ReAni3_3" component={ReAni3_3} />
       <Stack.Screen name="ReAni4" component={ReAni4} />
       <Stack.Screen name="ReAni5" component={ReAni5} />
       <Stack.Screen name="ReAni6" component={ReAni6} />
@@ -58,7 +62,9 @@ export type MyCarrotStackParamList = {
   ReAni1_1: undefined;
   ReAni1_2: undefined;
   ReAni2: undefined;
-  ReAni3: undefined;
+  ReAni3_1: undefined;
+  ReAni3_2: undefined;
+  ReAni3_3: undefined;
   ReAni4: undefined;
   ReAni5: undefined;
   ReAni6: undefined;
