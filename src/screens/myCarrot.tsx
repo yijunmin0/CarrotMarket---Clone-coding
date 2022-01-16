@@ -106,23 +106,43 @@ export const MyCarrot = function ({navigation}: Props) {
         <MyCarrotContentBox>
           <MyCarrotContent
             icon={<Icon name="laptop" size={20} />}
-            title="내 동네 설정"
-            route="Dummy"
+            title="ReAni1_1"
+            route="ReAni1_1"
           />
           <MyCarrotContent
             icon={<Icon name="staro" size={20} />}
-            title="동네 인증하기"
-            route="Dummy"
+            title="ReAni1_2"
+            route="ReAni1_2"
           />
           <MyCarrotContent
             icon={<Icon name="filter" size={20} />}
-            title="키워드 알림"
-            route="Dummy"
+            title="ReAni2"
+            route="ReAni2"
           />
           <MyCarrotContent
             icon={<Icon name="meh" size={20} />}
-            title="관심 카테고리 설정"
-            route="Dummy"
+            title="ReAni3"
+            route="ReAni3"
+          />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni4"
+            route="ReAni4"
+          />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni5"
+            route="ReAni5"
+          />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni6"
+            route="ReAni6"
+          />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni7"
+            route="ReAni7"
           />
         </MyCarrotContentBox>
         <MyCarrotContentBox>

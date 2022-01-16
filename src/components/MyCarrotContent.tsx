@@ -1,7 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {FC, ReactElement} from 'react';
-import {StyleSheet} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Text} from '../assets/styles/Text';
 import {View} from '../assets/styles/View';
 import {Props} from '../navigations/MyCarrotStack';

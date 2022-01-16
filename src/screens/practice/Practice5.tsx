@@ -1,8 +1,13 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {StyleSheet, Animated, Platform, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  Animated,
+  Platform,
+  StatusBar,
+  ScrollView,
+} from 'react-native';
 import {Header} from '../../components/Header';
 import {View} from '../../assets/styles/View';
-import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from '../../assets/styles/SafeAreaView';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 

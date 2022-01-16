@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {View} from '../assets/styles/View';
 import {Text} from '../assets/styles/Text';
 import {Product} from '../data/api';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Props} from '../navigations/HomeStack';
 import {useNavigation} from '@react-navigation/native';
 
