@@ -13,6 +13,7 @@ target 'Clone' do
   )
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   target 'CloneTests' do
     inherit! :complete
