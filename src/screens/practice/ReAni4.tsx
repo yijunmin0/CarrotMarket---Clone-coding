@@ -1,5 +1,6 @@
 //use interpolate, useAnimatedScrollHandler
 //make useLayoutHooks
+//index logic - common use on carosel
 
 import React from 'react';
 import {StyleSheet} from 'react-native';

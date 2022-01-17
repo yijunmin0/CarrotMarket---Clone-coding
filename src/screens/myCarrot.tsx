@@ -154,6 +154,21 @@ export const MyCarrot = function ({navigation}: Props) {
             title="ReAni7"
             route="ReAni7"
           />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni8"
+            route="ReAni8"
+          />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni9"
+            route="ReAni9"
+          />
+          <MyCarrotContent
+            icon={<Icon name="meh" size={20} />}
+            title="ReAni10"
+            route="ReAni10"
+          />
         </MyCarrotContentBox>
         <MyCarrotContentBox>
           <MyCarrotContent

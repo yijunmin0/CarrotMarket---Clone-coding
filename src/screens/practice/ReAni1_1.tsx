@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {Animated, Button, StyleSheet, Dimensions} from 'react-native';
 import {Header} from '../../components/Header';
 import {SafeAreaView} from '../../assets/styles/SafeAreaView';
@@ -11,6 +11,7 @@ export const ReAni1_1 = function () {
       toValue: Math.random(),
       useNativeDriver: false,
     }).start();
+
   // useEffect(() => {
   //   const id = setInterval(() => {
   //     for (let i = 0; i < 100000000; i++);
