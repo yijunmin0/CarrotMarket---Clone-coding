@@ -9,10 +9,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {Dimensions} from 'react-native';
 import {View} from '../assets/styles/View';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
-import {
-  PanGestureHandler,
-  TapGestureHandler,
-} from 'react-native-gesture-handler';
+import {TapGestureHandler} from 'react-native-gesture-handler';
 
 const os = Platform.OS;
 const standard = 40;
@@ -101,7 +98,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
             numberOfTaps={2}
             maxDelayMs={300}
             onActivated={() => {
-              setIsLike(isLike => !isLike);
+              setIsLike(value => !value);
             }}>
             <Animated.Image
               source={{uri: picture}}
