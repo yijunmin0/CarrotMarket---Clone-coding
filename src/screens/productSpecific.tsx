@@ -10,6 +10,7 @@ import {Dimensions} from 'react-native';
 import {View} from '../assets/styles/View';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {TapGestureHandler} from 'react-native-gesture-handler';
+import {ImageSpecific} from '../components/ImageSpecific';
 
 const os = Platform.OS;
 const standard = 40;
@@ -20,6 +21,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
   const navigation = useNavigation();
   const doubleTapRef = useRef();
   const [isLike, setIsLike] = useState<boolean>(false);
+  const [imageSpecificShow, setImageSpecificShow] = useState<boolean>(false);
   const scrolling = useRef(new Animated.Value(0)).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const translationView = scrolling.interpolate({
@@ -33,6 +35,11 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
   });
   const [dark, setDark] = useState<boolean>(false);
   const [onLoad, setOnLoad] = useState<boolean>(false);
+  const singleTab = () => {
+    console.log(1);
+    setImageSpecificShow(true);
+    console.log(imageSpecificShow);
+  };
   useEffect(() => {
     !onLoad &&
       Animated.loop(
@@ -50,6 +57,12 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
   });
   return (
     <View style={styles.view}>
+      {imageSpecificShow ? (
+        <ImageSpecific
+          imageUrl={picture}
+          setImageSpecificShow={setImageSpecificShow}
+        />
+      ) : null}
       <StatusBar
         animated={true}
         barStyle={
@@ -88,11 +101,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
             setDark(false);
           }
         }}>
-        <TapGestureHandler
-          waitFor={doubleTapRef}
-          onActivated={() => {
-            console.log(1);
-          }}>
+        <TapGestureHandler waitFor={doubleTapRef} onActivated={singleTab}>
           <TapGestureHandler
             ref={doubleTapRef}
             numberOfTaps={2}
