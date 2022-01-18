@@ -79,7 +79,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
           ) : (
             <Image
               source={require('../assets/images/whiteLeftArrow.png')}
-              style={{width: 20, height: 20}}
+              style={styles.whiteLeftIcon}
             />
           )
         }
@@ -105,7 +105,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
           <TapGestureHandler
             ref={doubleTapRef}
             numberOfTaps={2}
-            maxDelayMs={300}
+            maxDelayMs={150}
             onActivated={() => {
               setIsLike(value => !value);
             }}>
@@ -187,4 +187,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {fontSize: 25, fontWeight: '400'},
+  whiteLeftIcon: {height: 20, width: 20},
 });
