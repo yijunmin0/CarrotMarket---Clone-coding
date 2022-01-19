@@ -4,22 +4,19 @@ import {GoogleSignin} from 'react-native-google-login';
 type UserInfoProps = Awaited<ReturnType<typeof GoogleSignin.signIn>>;
 
 type User = {
-  isLogin: boolean;
   userInfo?: UserInfoProps;
 };
 
-const initialState: User = {isLogin: false};
+const initialState: User = {};
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     login(state, action: PayloadAction<UserInfoProps>) {
-      state.isLogin = true;
       state.userInfo = action.payload;
     },
     logout(state) {
-      state.isLogin = false;
       state.userInfo = undefined;
     },
   },

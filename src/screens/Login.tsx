@@ -5,6 +5,7 @@ import {
   GoogleSignin,
 } from 'react-native-google-login';
 import {useDispatch} from 'react-redux';
+import auth from '@react-native-firebase/auth';
 import {login} from '../store/userSlice';
 
 type Error = {
@@ -17,7 +18,10 @@ export const Login = function () {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
+      const idToken = userInfo.idToken;
       dispatch(login(userInfo));
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      return auth().signInWithCredential(googleCredential);
     } catch (e: unknown) {
       const error = e as Error;
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {

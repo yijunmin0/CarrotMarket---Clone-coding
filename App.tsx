@@ -1,14 +1,35 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import useUser from './src/hooks/useUser';
 import {BottomTabNavigation} from './src/navigations/BottomTabNavigation';
 import {Login} from './src/screens/Login';
+import auth from '@react-native-firebase/auth';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 export default function App() {
-  const isLogin = useUser().isLogin;
+  // type UserInfoProps = Awaited<ReturnType<typeof GoogleSignin.signIn>>;
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>();
+
+  // Handle user state changes
+  function onAuthStateChanged(user1: FirebaseAuthTypes.User | null) {
+    setUser(user1);
+    if (initializing) {
+      setInitializing(false);
+    }
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  });
+
+  if (initializing) {
+    return null;
+  }
   return (
     <View style={styles.areaView}>
-      {isLogin ? <BottomTabNavigation /> : <Login />}
+      {user ? <BottomTabNavigation /> : <Login />}
     </View>
   );
 }

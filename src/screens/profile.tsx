@@ -11,6 +11,7 @@ import {GoogleSignin} from 'react-native-google-login';
 import {Colors} from 'react-native-paper';
 import useUser from '../hooks/useUser';
 import {SafeAreaView} from '../assets/styles/SafeAreaView';
+import auth from '@react-native-firebase/auth';
 
 export const Profile = function () {
   const userInfo = useUser().userInfo;
@@ -18,6 +19,7 @@ export const Profile = function () {
   const navigation = useNavigation();
   const signOut = async () => {
     try {
+      await auth().signOut();
       await GoogleSignin.revokeAccess();
       await GoogleSignin.signOut();
       dispatch(logout());
