@@ -173,8 +173,8 @@ export const MyCarrot = function ({navigation}: Props) {
         <MyCarrotContentBox>
           <MyCarrotContent
             icon={<Icon name="shoppingcart" size={20} />}
-            title="모아보기"
-            route="Dummy"
+            title="AddProduct"
+            route="AddProduct"
           />
           <MyCarrotContent
             icon={<Icon name="save" size={20} />}
