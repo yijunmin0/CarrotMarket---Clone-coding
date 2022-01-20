@@ -36,9 +36,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
   const [dark, setDark] = useState<boolean>(false);
   const [onLoad, setOnLoad] = useState<boolean>(false);
   const singleTab = () => {
-    console.log(1);
     setImageSpecificShow(true);
-    console.log(imageSpecificShow);
   };
   useEffect(() => {
     !onLoad &&

@@ -44,16 +44,17 @@ export const ImageSpecific: FC<ImageSpecificProps> = function ({
     useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
       onStart: () => {},
       onActive: event => {
-        console.log(event.translationY);
         if (Math.abs(event.translationY) > 1) {
           closeIcontranslateY.value = withTiming(-100);
         }
         if (event.translationY > height / 3) {
-          translateY.value = withTiming(height);
-          runOnJS(setImageSpecificShow)(false);
+          translateY.value = withTiming(height, {duration: 300}, result => {
+            result ? runOnJS(setImageSpecificShow)(false) : null;
+          });
         } else if (event.translationY < -height / 3) {
-          translateY.value = withTiming(-height);
-          runOnJS(setImageSpecificShow)(false);
+          translateY.value = withTiming(-height, {duration: 300}, result => {
+            result ? runOnJS(setImageSpecificShow)(false) : null;
+          });
         }
         imagetranslateY.value = event.translationY;
       },
@@ -87,7 +88,7 @@ export const ImageSpecific: FC<ImageSpecificProps> = function ({
   });
   useEffect(() => {
     translateY.value = -height;
-    translateY.value = withTiming(0);
+    translateY.value = withTiming(0, {duration: 300});
   });
   const AnimatedTouchableOpacity =
     Animated.createAnimatedComponent(TouchableOpacity);
@@ -131,5 +132,10 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   icon: {position: 'absolute', right: 20, top: 50},
-  aroundView: {flex: 1, width: width, backgroundColor: 'black', opacity: 1},
+  aroundView: {
+    width: width,
+    backgroundColor: 'black',
+    opacity: 1,
+    height: 3 * height,
+  },
 });
