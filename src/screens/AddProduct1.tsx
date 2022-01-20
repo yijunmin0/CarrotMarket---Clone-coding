@@ -4,7 +4,7 @@ import {Header} from '../components/Header';
 import {SafeAreaView} from '../assets/styles/SafeAreaView';
 import database from '@react-native-firebase/database';
 
-export const AddProduct = function () {
+export const AddProduct1 = function () {
   const addData = () =>
     database()
       .ref('/users/12345')

@@ -8,6 +8,7 @@ import {randomImage} from '../../data/makeRandom';
 const ImagUrls = [randomImage(), randomImage(), randomImage()];
 
 export const ReAni9 = function () {
+  console.log(ImagUrls);
   return (
     <SafeAreaView style={styles.view}>
       <Header title="ReAni9" />

@@ -22,7 +22,9 @@ import {ReAni7} from '../screens/practice/ReAni7';
 import {ReAni8} from '../screens/practice/ReAni8';
 import {ReAni9} from '../screens/practice/ReAni9';
 import {ReAni10} from '../screens/practice/ReAni10';
-import {AddProduct} from '../screens/AddProduct';
+import {AddProduct1} from '../screens/AddProduct1';
+import {AddProduct2} from '../screens/AddProduct2';
+
 import {StackScreenProps} from '@react-navigation/stack';
 
 const Stack = createStackNavigator<MyCarrotStackParamList>();
@@ -52,7 +54,8 @@ export const MyCarrotStack = function () {
       <Stack.Screen name="ReAni8" component={ReAni8} />
       <Stack.Screen name="ReAni9" component={ReAni9} />
       <Stack.Screen name="ReAni10" component={ReAni10} />
-      <Stack.Screen name="AddProduct" component={AddProduct} />
+      <Stack.Screen name="AddProduct1" component={AddProduct1} />
+      <Stack.Screen name="AddProduct2" component={AddProduct2} />
     </Stack.Navigator>
   );
 };
@@ -80,7 +83,8 @@ export type MyCarrotStackParamList = {
   ReAni8: undefined;
   ReAni9: undefined;
   ReAni10: undefined;
-  AddProduct: undefined;
+  AddProduct1: undefined;
+  AddProduct2: undefined;
 };
 
 export type Props = StackScreenProps<MyCarrotStackParamList>;
