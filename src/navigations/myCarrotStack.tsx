@@ -24,6 +24,7 @@ import {ReAni9} from '../screens/practice/ReAni9';
 import {ReAni10} from '../screens/practice/ReAni10';
 import {AddProduct1} from '../screens/AddProduct1';
 import {AddProduct2} from '../screens/AddProduct2';
+import {GetMovies} from '../screens/GetMovies';
 
 import {StackScreenProps} from '@react-navigation/stack';
 
@@ -56,6 +57,7 @@ export const MyCarrotStack = function () {
       <Stack.Screen name="ReAni10" component={ReAni10} />
       <Stack.Screen name="AddProduct1" component={AddProduct1} />
       <Stack.Screen name="AddProduct2" component={AddProduct2} />
+      <Stack.Screen name="GetMovies" component={GetMovies} />
     </Stack.Navigator>
   );
 };
@@ -85,6 +87,7 @@ export type MyCarrotStackParamList = {
   ReAni10: undefined;
   AddProduct1: undefined;
   AddProduct2: undefined;
+  GetMovies: undefined;
 };
 
 export type Props = StackScreenProps<MyCarrotStackParamList>;

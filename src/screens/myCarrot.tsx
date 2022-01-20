@@ -183,8 +183,8 @@ export const MyCarrot = function ({navigation}: Props) {
           />
           <MyCarrotContent
             icon={<Icon name="videocamera" size={20} />}
-            title="받은 쿠폰함"
-            route="Dummy"
+            title="GetMovies"
+            route="GetMovies"
           />
           <MyCarrotContent
             icon={<Icon name="totop" size={20} />}

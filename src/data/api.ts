@@ -8,6 +8,23 @@ export interface Product {
   location: string;
 }
 
+export interface MovieProps {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: [];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
 // export function makeProductList(num: number) {
 //   return new Promise(function (resolve) {
 //     const newArray: number[] = [...new Array(num)].map((_, i) => i + 1);
