@@ -11,12 +11,14 @@ import {View} from '../assets/styles/View';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {TapGestureHandler} from 'react-native-gesture-handler';
 import {ImageSpecific} from '../components/ImageSpecific';
+import {IMAGE_BASE_URL} from '../config';
 
 const os = Platform.OS;
 const standard = 40;
 
 export const ProductSpecific = function ({route}: ProductSpecificProps) {
-  const {picture, price, title, location} = route.params;
+  const {poster_path, vote_count, title, original_title, overview} =
+    route.params;
   const isFocused = useIsFocused();
   const navigation = useNavigation();
   const doubleTapRef = useRef();
@@ -57,7 +59,7 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
     <View style={styles.view}>
       {imageSpecificShow ? (
         <ImageSpecific
-          imageUrl={picture}
+          poster_path={poster_path}
           setImageSpecificShow={setImageSpecificShow}
         />
       ) : null}
@@ -108,7 +110,8 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
               setIsLike(value => !value);
             }}>
             <Animated.Image
-              source={{uri: picture}}
+              source={{uri: `${IMAGE_BASE_URL}w500${poster_path}`}}
+              // `${IMAGE_BASE_URL}w500${poster_path}`
               style={{
                 ...styles.image,
                 top: -standard,
@@ -136,8 +139,9 @@ export const ProductSpecific = function ({route}: ProductSpecificProps) {
               <Icon name="staro" size={20} />
             )}
           </View>
-          <Text>가격 : {price}</Text>
-          <Text>지역 : {location}</Text>
+          <Text>가격 : {vote_count}</Text>
+          <Text>지역 : {original_title}</Text>
+          <Text>{overview}</Text>
           <View style={styles.spaceView} />
         </Animated.View>
       </Animated.ScrollView>

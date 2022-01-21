@@ -30,6 +30,7 @@ export const Header: FC<HeaderProps> = ({
       style={[
         styles.container,
         style,
+        {justifyContent: leftIcon ? 'space-between' : 'flex-start'},
         // eslint-disable-next-line react-native/no-inline-styles
         {backgroundColor: dark ? 'white' : 'transparent'},
         {borderBottomWidth: dark ? 0.5 : 0.0},
@@ -47,7 +48,10 @@ export const Header: FC<HeaderProps> = ({
         <TouchableOpacity
           onPress={titlePress}
           disabled={titlePress ? false : true}>
-          <Text style={{...styles.titleText, color: dark ? 'black' : 'white'}}>
+          <Text
+            numberOfLines={2}
+            ellipsizeMode="tail"
+            style={{...styles.titleText, color: dark ? 'black' : 'white'}}>
             {' '}
             {title}{' '}
           </Text>
@@ -71,23 +75,25 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: 'lightgray',
     flexDirection: 'row',
+    justifyContent: 'flex-start',
     paddingLeft: 15,
     paddingRight: 15,
   },
   titleContainer: {
+    flex: 8,
     height: '100%',
     justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   leftBox: {
-    position: 'absolute',
+    flex: 1,
     left: 10,
     height: '100%',
     justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   rightBox: {
-    position: 'absolute',
+    flex: 1,
     right: 10,
     height: '100%',
     justifyContent: 'center',

@@ -20,21 +20,24 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import Image from 'react-native-scalable-image';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {IMAGE_BASE_URL} from '../config';
 
 interface ImageSpecificProps extends ViewProps {
-  imageUrl: string;
+  poster_path: string;
   setImageSpecificShow: React.Dispatch<boolean>;
 }
 
 const {width, height} = Dimensions.get('window');
 
 export const ImageSpecific: FC<ImageSpecificProps> = function ({
-  imageUrl,
+  poster_path,
   setImageSpecificShow,
 }) {
   const translateY = useSharedValue(0);
   const closeIcontranslateY = useSharedValue(0);
+  const closeIconOpacity = useSharedValue(1);
   const imagetranslateY = useSharedValue(0);
   const hideImageSpecific = function () {
     'worklet';
@@ -48,10 +51,12 @@ export const ImageSpecific: FC<ImageSpecificProps> = function ({
           closeIcontranslateY.value = withTiming(-100);
         }
         if (event.translationY > height / 3) {
+          closeIconOpacity.value = 0;
           translateY.value = withTiming(height, {duration: 300}, result => {
             result ? runOnJS(setImageSpecificShow)(false) : null;
           });
         } else if (event.translationY < -height / 3) {
+          closeIconOpacity.value = 0;
           translateY.value = withTiming(-height, {duration: 300}, result => {
             result ? runOnJS(setImageSpecificShow)(false) : null;
           });
@@ -80,11 +85,14 @@ export const ImageSpecific: FC<ImageSpecificProps> = function ({
     );
     return {opacity: opacity};
   });
-  const animatedImageStyle = useAnimatedStyle(() => {
+  const animatedImageCoverViewStyle = useAnimatedStyle(() => {
     return {transform: [{translateY: imagetranslateY.value}]};
   });
   const animatedCloseIconStyle = useAnimatedStyle(() => {
-    return {transform: [{translateY: closeIcontranslateY.value}]};
+    return {
+      opacity: closeIconOpacity.value,
+      transform: [{translateY: closeIcontranslateY.value}],
+    };
   });
   useEffect(() => {
     translateY.value = -height;
@@ -103,10 +111,13 @@ export const ImageSpecific: FC<ImageSpecificProps> = function ({
             <Icon name="close" size={20} color="white" style={styles.icon} />
           </AnimatedTouchableOpacity>
         </Animated.View>
-        <Animated.Image
-          source={{uri: imageUrl}}
-          style={[styles.image, animatedImageStyle]}
-        />
+        <Animated.View
+          style={[styles.imageCoverView, animatedImageCoverViewStyle]}>
+          <Image
+            width={width}
+            source={{uri: `${IMAGE_BASE_URL}w500${poster_path}`}}
+          />
+        </Animated.View>
       </Animated.View>
     </PanGestureHandler>
   );
@@ -123,15 +134,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'transparent',
   },
-  image: {
-    width: width,
-    height: width,
+  imageCoverView: {
     position: 'absolute',
     alignSelf: 'center',
-    top: height / 4,
     opacity: 1,
   },
-  icon: {position: 'absolute', right: 20, top: 50},
+  icon: {position: 'absolute', right: 20, top: height + 50},
   aroundView: {
     width: width,
     backgroundColor: 'black',

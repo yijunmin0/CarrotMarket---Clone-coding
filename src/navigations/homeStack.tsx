@@ -3,6 +3,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home} from '../screens/Home';
 import {ProductSpecific} from '../screens/ProductSpecific';
+import {Movie} from '../data/api';
 const Stack = createStackNavigator<HomeStackParamList>();
 
 export function HomeStack() {
@@ -16,13 +17,7 @@ export function HomeStack() {
 
 type HomeStackParamList = {
   Home: undefined;
-  ProductSpecific: {
-    id: string;
-    picture: string;
-    price: string;
-    title: string;
-    location: string;
-  };
+  ProductSpecific: Movie;
 };
 
 export type ProductSpecificProps = StackScreenProps<
