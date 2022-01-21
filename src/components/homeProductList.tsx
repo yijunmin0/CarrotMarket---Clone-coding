@@ -2,7 +2,7 @@ import React, {FC, useState, useEffect} from 'react';
 import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {View} from '../assets/styles/View';
 import {Text} from '../assets/styles/Text';
-import {Product} from '../data/api';
+import {Movie} from '../data/api';
 import {Props} from '../navigations/HomeStack';
 import {useNavigation} from '@react-navigation/native';
 import Animated, {
@@ -12,12 +12,13 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {Colors} from 'react-native-paper';
+import {IMAGE_BASE_URL} from '../config';
 
-export type ProductProps = {
-  product: Product;
+export type MovieProps = {
+  movie: Movie;
 };
 
-export const HomeProductList: FC<ProductProps> = ({product}) => {
+export const HomeProductList: FC<MovieProps> = ({movie}) => {
   const navigation = useNavigation<Props['navigation']>();
   const [onLoad, setOnLoad] = useState<boolean>(false);
   const loadingImgOpacity = useSharedValue(0.25);
@@ -37,7 +38,7 @@ export const HomeProductList: FC<ProductProps> = ({product}) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('ProductSpecific', {...product});
+        navigation.navigate('ProductSpecific', {...movie});
       }}>
       <View style={styles.view}>
         <View style={styles.leftContents}>
@@ -45,7 +46,9 @@ export const HomeProductList: FC<ProductProps> = ({product}) => {
             onLoad={() => {
               setOnLoad(true);
             }}
-            source={{uri: product.picture, cache: 'reload'}}
+            source={{
+              uri: `${IMAGE_BASE_URL}w500${movie.poster_path}`,
+            }}
             style={styles.image}
           />
           {!onLoad && (
@@ -53,9 +56,9 @@ export const HomeProductList: FC<ProductProps> = ({product}) => {
           )}
         </View>
         <View style={styles.rightContents}>
-          <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.location}>location : {product.location}</Text>
-          <Text style={styles.price}>{product.price}$</Text>
+          <Text style={styles.title}>{movie.title}</Text>
+          <Text style={styles.location}>location : {movie.original_title}</Text>
+          <Text style={styles.price}>{movie.vote_count}$</Text>
         </View>
       </View>
     </TouchableOpacity>

@@ -4,27 +4,39 @@ import {StyleSheet, FlatList} from 'react-native';
 import {View} from '../assets/styles/View';
 import {SafeAreaView} from '../assets/styles/SafeAreaView';
 import {HomeProductList} from '../components/HomeProductList';
-import {Product} from '../data/api';
-import {makeProductList} from '../data/api';
+import {Movie} from '../data/api';
 import {Header} from '../components/Header';
+import {API_KEY, API_URL} from '../config';
 
 export const Home = function () {
-  const newProductList = function (num: number) {
-    makeProductList(num).then(List => setProductList(List));
+  const [movieList, setMovieList] = useState<Movie[]>([]);
+  const [page, setPage] = useState(1);
+  const getMovies = function (_page: number) {
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${_page}`;
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(res => {
+        setMovieList(() => movieList.concat(res.results));
+        setPage(prev => prev + 1);
+      })
+      .catch(error => console.log(error));
   };
-  const [productList, setProductList] = useState<Product[]>([]);
 
   useEffect(() => {
-    newProductList(20);
+    getMovies(page);
   }, []);
 
   const onEndReached = () => {
-    makeProductList(20).then(List =>
-      setProductList(() => productList.concat(List)),
-    );
+    getMovies(page);
   };
   const onRefresh = () => {
-    newProductList(20);
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(res => {
+        setMovieList(res.results);
+        setPage(2);
+      });
   };
   const [isRefreshing] = useState<boolean>(false);
 
@@ -33,8 +45,8 @@ export const Home = function () {
       <Header title="홈" />
       <FlatList
         style={styles.flatList}
-        data={productList}
-        renderItem={({item}) => <HomeProductList product={item} />}
+        data={movieList}
+        renderItem={({item}) => <HomeProductList movie={item} />}
         keyExtractor={(item, _index) => String(item.id)}
         ItemSeparatorComponent={() => <View style={[styles.itemSeparator]} />}
         initialNumToRender={10}
