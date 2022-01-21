@@ -24,6 +24,7 @@ export const Home = function () {
 
   useEffect(() => {
     getMovies(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onEndReached = () => {

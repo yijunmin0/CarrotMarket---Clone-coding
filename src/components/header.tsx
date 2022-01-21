@@ -44,7 +44,8 @@ export const Header: FC<HeaderProps> = ({
           </TouchableOpacity>
         )}
       </View>
-      <View style={[styles.titleContainer]}>
+      <View
+        style={[styles.titleContainer, {width: leftIcon ? '80%' : undefined}]}>
         <TouchableOpacity
           onPress={titlePress}
           disabled={titlePress ? false : true}>
@@ -80,20 +81,19 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   titleContainer: {
-    flex: 8,
     height: '100%',
     justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   leftBox: {
-    flex: 1,
+    position: 'absolute',
     left: 10,
     height: '100%',
     justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   rightBox: {
-    flex: 1,
+    position: 'absolute',
     right: 10,
     height: '100%',
     justifyContent: 'center',
