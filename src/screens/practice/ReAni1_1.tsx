@@ -12,12 +12,12 @@ export const ReAni1_1 = function () {
       useNativeDriver: false,
     }).start();
 
-  // useEffect(() => {
-  //   const id = setInterval(() => {
-  //     for (let i = 0; i < 100000000; i++);
-  //   }, 0);
-  //   return () => clearInterval(id);
-  // }, []);
+  useEffect(() => {
+    const id = setInterval(() => {
+      for (let i = 0; i < 100000000; i++);
+    }, 0);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <SafeAreaView style={styles.view}>

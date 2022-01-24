@@ -12,11 +12,17 @@ export const Home = function () {
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const [page, setPage] = useState(1);
   const getMovies = function (_page: number) {
+    console.log(_page);
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${_page}`;
     fetch(endpoint)
       .then(res => res.json())
       .then(res => {
         setMovieList(() => movieList.concat(res.results));
+        console.log(
+          res.results.map(a => {
+            return a.id;
+          }),
+        );
         setPage(prev => prev + 1);
       })
       .catch(error => console.log(error));

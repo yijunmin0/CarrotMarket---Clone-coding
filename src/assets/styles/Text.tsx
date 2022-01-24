@@ -3,7 +3,7 @@ import {Text as BaseText, StyleSheet, TextProps, Platform} from 'react-native';
 
 export const Text: FC<TextProps> = ({style, children, ...props}) => {
   return (
-    <BaseText style={[styles.font, style]} {...props}>
+    <BaseText style={[styles.font, style]} {...props} allowFontScaling>
       {children}
     </BaseText>
   );

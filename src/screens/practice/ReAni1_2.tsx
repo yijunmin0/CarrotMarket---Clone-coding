@@ -15,12 +15,12 @@ export const ReAni1_2 = function () {
     'worklet';
     translation.value = withSpring(Math.random());
   };
-  // useEffect(() => {
-  //   const id = setInterval(() => {
-  //     for (let i = 0; i < 100000000; i++);
-  //   }, 0);
-  //   return () => clearInterval(id);
-  // }, []);
+  useEffect(() => {
+    const id = setInterval(() => {
+      for (let i = 0; i < 100000000; i++);
+    }, 0);
+    return () => clearInterval(id);
+  }, []);
   const animatedStyle = useAnimatedStyle(() => {
     return {
       width: translation.value * width,

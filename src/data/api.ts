@@ -8,7 +8,7 @@ export interface Product {
   location: string;
 }
 
-export interface MovieProps {
+export interface Movie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: [];

@@ -1,4 +1,4 @@
-//use switch component, toggle concept
+//use switch component, toggle concept, useDerivedValue, interpolateColors
 //toggle change process 0 <-> 1 then interpolate
 //only center problem
 
